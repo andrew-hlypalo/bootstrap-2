@@ -1,0 +1,1016 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+    <!-- Кодировка веб-страницы -->
+    <meta charset="utf-8">
+    <!-- Настройка viewport -->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>...</title>
+
+    <!-- Bootstrap CSS (Cloudflare CDN) -->
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          rel="stylesheet">
+    <!-- jQuery (Cloudflare CDN) -->
+    <script crossorigin="anonymous" defer
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap Bundle JS (Cloudflare CDN) -->
+    <script crossorigin="anonymous" defer
+            integrity="sha512-wV7Yj1alIZDqZFCUQJy85VN+qvEIly93fIQAN7iqDFCPEucLCeNFz4r35FCo9s6WrpdDQPi80xbljXB8Bjtvcg=="
+            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+
+
+    <style type="text/css">
+
+        .btn-cart {
+            background-color: #FF6737;
+            font-size: 12px;
+            color: white;
+            height: 35px;
+            margin-top: 10px;
+        }
+
+        .btn-cart:hover {
+            color: white;
+            box-shadow: 0 0 0 0.1rem #FF6737;
+        }
+
+        .dropdown-content a{
+            position: relative;
+            height: 35px;
+        }
+
+        .logo {
+            color: rgb(68,76,106);
+        }
+
+        .logo img {
+            padding: 5px;
+        }
+
+        .dropbtn {
+            background-color: rgb(68,76,106);
+            color: white;
+            min-width: 220px;
+            min-height: 40px;
+            text-align: left;
+            font-size: 14px;
+            border: none;
+            padding-left: 10px;
+            margin-left: 5px;
+        }
+        
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-content {
+            margin-left: 5px;
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 220px;
+            box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 8px;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .dropdown-content a:hover { background-color: silver; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .dropdown:hover .dropbtn { background-color: rgb(63,69,97); }
+
+        .search-btn {
+            border: none;
+            outline: none;
+            border-radius: 3px;
+        }
+        .search-btn {
+            height: 26px;
+            width: 26px;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: white;
+            cursor: pointer;
+        }
+        .search-btn:before {
+            content: url("images/search.png");
+            font-family: FontAwesome;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .smaller {
+            font-size: 10px;
+        }
+
+        .icon-small {
+            height: 12px;
+        }
+
+        .icon {
+            height: 15px;
+            width: 15px;
+        }
+
+        .btn-outline-orange {
+            color: #FF6737;
+            border-color: #FF6737;
+            box-shadow: #FF6737;
+        }
+
+        .btn-outline-orange:hover {
+            color: #FF6737;
+            box-shadow: 0 0 0 0.1rem #FF6737;
+        }
+
+        .display-smaller {
+            font-size: 50px;
+            font-weight: 150
+        }
+
+        .products-background {
+            background: #F2F7FC;
+        }
+
+        .footer-form {
+            color: whitesmoke;
+            background: #2898F8;
+            padding: 70px;
+        }
+
+        .footer-form input {
+            height: 42px;
+        }
+
+        .btn-email-submit {
+            background: #1268B6;
+            color: white;
+        }
+
+        .footer {
+            background: #363C52;
+            color: #adb5bd;
+            font-size: 15px;
+            padding: 70px;
+            line-height: 2;
+        }
+
+        .footer ul {
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .footer strong {
+            padding-bottom: 30px;
+            color: white;
+        }
+
+        .product-box {
+            padding: 0;
+            border: 1px solid #e7eaec;
+        }
+
+        .product-desc {
+            padding: 20px;
+            position: relative;
+        }
+
+        .product-name {
+            height: 120px;
+            font-size: 16px;
+            font-weight: 300;
+            color: black;
+            display: block;
+            margin: 2px 0 5px 0;
+        }
+
+        .product-detail .ibox-content {
+            padding: 30px 30px 50px 30px;
+        }
+
+        .product-main-price small {
+            font-size: 10px;
+        }
+
+        .ibox {
+            clear: both;
+            margin-bottom: 25px;
+            margin-top: 0;
+            padding: 0;
+        }
+
+        .ibox-content {
+            background-color: #ffffff;
+            color: inherit;
+            padding: 15px 20px 20px 20px;
+            border-color: #e7eaec;
+            border-image: none;
+            border-style: solid solid none;
+            border-width: 1px 0;
+        }
+
+        .btn-nav-header {
+            background-color: white;
+            font-size: 12px;
+            margin: 5px;
+        }
+
+        .btn-header {
+            background-color: white;
+            font-size: 15px;
+            margin: 5px;
+        }
+
+        .phone {
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<!--    ***|||***======**|||**    Header     ***|||***======**|||**                  -->
+
+<div class="container">
+    <div class="row align-content-center">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-auto">
+                        <div class="row">
+                            <button type="button" class="btn btn-light btn-nav-header rounded-0" title="Акции">Акции</button>
+                            <button type="button" class="btn btn-light btn-nav-header rounded-0" title="Акции">Заказ</button>
+                            <button type="button" class="btn btn-light btn-nav-header rounded-0" title="Акции">О компании</button>
+                            <button type="button" class="btn btn-light btn-nav-header rounded-0" title="Акции">Контакты</button>
+                        </div>
+                    </div>
+                    <div class="col-auto mx-auto">
+                        <div class="row">
+                            <button class="col-auto btn btn-light btn-header rounded-0">
+                                <img src="images/star.png" class="icon"><br>
+                                <span class="small">Избранное</span>
+                            </button>
+                            <button class="col-auto btn btn-light btn-header rounded-0">
+                                <img src="images/chart.png" class="icon"><br>
+                                <span class="small">Сравнения</span>
+                            </button>
+                            <button class="col-auto btn btn-light btn-header rounded-0">
+                                <img src="images/status.png" class="icon"><br>
+                                <span class="small">Статус закакза</span>
+                            </button>
+                            <button class="col-auto btn btn-light btn-header rounded-0 d-flex">
+                                <div class="d-table-cell m-2">
+                                    <img src="images/profile.png" class="icon">
+                                </div>
+                                <div class="d-table-cell">
+                                    <span class="small">Космос Кузнецов</span><br>
+                                    <span class="smaller text-muted">Личная скидка до 5%</span>
+                                </div>
+                            </button>
+                            <button class="col-auto btn btn-cart">
+                                <img src="images/cart.png">
+                                <span>&ensp;1 товар на 45 000 руб.&ensp;&ensp;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 mt-3">
+                <div class="row">
+                    <div class="col-auto logo">
+                        <div class="row">
+                            <img src="images/logo_small.png">
+                            <div>
+                                <h3 style="margin-bottom: -1px"><strong>ЭЛЛЕРОН</strong></h3>
+                                <strong class="smaller">Силовое и приводное<br> электрооборудование</strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto mt-auto m-auto">
+                        <div class="btn-toolbar">
+                            <button class="btn btn-light rounded-0 dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                <img src="images/location.png" >
+                                <span class="text-muted small">&ensp;Комсомольск на Амуре</span>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Ростов на дону</a>
+                                <a class="dropdown-item" href="#">Таганрог</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto mt-auto m-auto">
+                        <div class="row">
+                            <img src="images/contents/expert.png">
+                            <div class="pl-2">
+                                <a class="small" style="font-weight: bold">Выбрать со<br> специалистом</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-auto text-right m-auto">
+                        <a class="phone"  href="tel:+7 (495) 504-36-33">+7 (495) 504-36-33</a><br>
+                        <a class="small text-decoration-none" href="mailto:zapros@elleron.ru">zapros@elleron.ru</a>
+                    </div>
+                    <div class="col-auto text-right m-auto">
+                        <a class="phone" href="tel:8 (800) 700-11-54"> 8 (800) 700-11-54</a><br>
+                        <a class="small text-muted" >Звонок бесплатный 8:00-18:00</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <div class="row justify-content-center">
+        <!--<hr style="margin-top: 0px; margin-bottom: 0px;">-->
+
+        <div>
+            <div style="padding-top: 15px;">
+                <div style="position: relative; top: -10px;">
+                    <div class="dropdown" style="display: table-cell;">
+                        <button class="dropbtn" style="display: flex;">
+                            <div>
+                                <img src="images/catalog.png" style="padding-top: 13px;">
+                            </div>
+                            <div style="padding-top: 8px;">
+                                <a>&ensp;КАТАЛОГ</a>
+                            </div>
+                        </button>
+                        <div class="dropdown-content" style="font-size: 13px;">
+                            <a href="#">Частотные преобразователи</a>
+                            <a href="#">Устройства плавного пуска</a>
+                            <a href="#">Станции управления</a>
+                            <a href="#">Насосы</a>
+                            <a href="#">Датчики, энкодеры, манометры</a>
+                            <a href="#">Мотор-редукторы</a>
+                            <a href="#">Электродвигатели</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#">Транформаторы силовые</a>
+                            <a href="#">Трансформаторные подстанции</a>
+                            <a href="#">Конденсаторные установки</a>
+                            <a href="#">Выключатели автоматические</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#">Дополнительное оборудование</a>
+                            <a href="#">Весь каталог оборудования</a>
+                        </div>
+                    </div>
+                    <div style="display: table-cell; position: relative; top: 10px; left: 15px;">
+                        <input class="form-control rounded-0" type="text" placeholder="Поиск по артикулу или названию" style="width: 670px; box-shadow: none !important; outline: none !important;">
+                        <button class="search-btn" type="submit"></button>
+                    </div>
+                    <div style="display: table-cell; position: relative; top: 5px; left: 25px;">
+                        <img src="images/service.png">
+                        <a href="#" style="font-size: 13px; padding-right: 10px; text-decoration: none;">Сервис</a>
+                        <img src="images/question.png">
+                        <a href="#" style="font-size: 13px; text-decoration: none;">Вопрос-ответ</a>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color: white; margin-left: 240px; padding-top: 50px; padding-left: 10px; padding-bottom: -20px;">
+                <div style="display: table-cell; position: relative; top: -100px;">
+                    <a style="font-size: 33px;"><strong>Частотный преобразователь <br>
+                        TOSHIBA VFAS1-4055PL-WP1<br>
+                        (EMC,GTR7) 5.5кВт 380В<br></strong></a>
+                    <a style="font-size: 13px;">Мощный стандартный привод переменного тока для<br>
+                        промышленного и жилищно-коммунального применения.<br></a>
+                    <a style="font-size: 33px; color: orangered;"><strong>18 100 руб.</strong></a>
+                </div>
+                <div class="chast_kar" style="display: table-cell; position: relative; top: 0px; left: 100px;">
+                    <img style="width: 180px;" src="images/contents/main-product1.png">
+                </div>
+                <div style="position: relative; top: -60px; left: -10px;">
+                    <img src="images/contents/main-product2.png">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***======**|||**         ***|||***======**|||**                  -->
+
+<div class="container-fluid no-gutters">
+    <div class="row">
+        <div class="col-12 p-5" style="background-color: #2897F8">
+            <div class="row">
+                <div class="col-4">
+                    <div class="row justify-content-center">
+                        <img alt="" class="img-fluid" src="images/screen1.png" style="height: 80px">
+                        <div class="col-1 text-white">Бесплатная доставка</div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row justify-content-center">
+                        <img alt="" class="img-fluid" src="images/screen2.png" style="height: 80px">
+                        <div class="col-1 text-white">Продление гарантии</div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row justify-content-center">
+                        <img alt="" class="img-fluid" src="images/screen3.png" style="height: 80px">
+                        <div class="col-1 text-white">Бесплатная поддержка</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--    ***|||***======**|||**    DISCOUNTS     ***|||***======**|||**                  -->
+
+        <div class="col-12 pt-5 pl-5 pr-5">
+            <span class="display-smaller">Скидки</span>
+            <button class="btn btn-outline-secondary mb-4 ml-3" type="button">Смотреть все (40)</button>
+            <a href="#"><img alt="" class="img-fluid mt-3 float-right" src="images/buttons.png" style="height: 40px"></a>
+        </div>
+        <div class="col-12 p-5 products-background">
+            <div class="row">
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/discounts1.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Частотные преобразователи</small>
+                                <a class="product-name" href="#">Частотный преобразователь TOSHIBA VFAS1-4055PL-WP (EMC,GTR7) 5.5kBt 380B</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/discounts2.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Частотные преобразователи</small>
+                                <a class="product-name" href="#">Частотный преобразоваель INSTART FCI-G11/P15-4BF 15кВт 380B</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/discounts3.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Датчики давления</small>
+                                <a class="product-name" href="#">Датчик давления Danfos MBS1700 G1/2 0...6 бар</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/discounts4.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Конденсаторные установки</small>
+                                <a class="product-name" href="#">Конденсаторная установка УКМФ 58-0,4-300-50 УЗ</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    BEST SALES     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters mt-5">
+    <div class="row m-1 products-background">
+        <div class="col-12 pt-5 pl-5 pr-5">
+            <span class="display-smaller">Хиты продаж</span>
+            <button class="btn btn-outline-secondary mb-4 ml-3" type="button">Смотреть все (40)</button>
+            <a href="#"><img alt="" class="img-fluid mt-3 float-right" src="images/buttons.png" style="height: 40px"></a>
+        </div>
+        <div class="col-12 p-5">
+            <div class="row">
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/hit1.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Конденсаторные установки</small>
+                                <a class="product-name" href="#">Конденсаторная установка УКМФ 58-0,4-300-50 УЗ</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/hit2.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Трансформаторы</small>
+                                <a class="product-name" href="#">Трансформатор сухой ТСЗГЛФ-160/6/0,4 У/Ун-0 Ukз=4%</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 434 А
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/hit3.jpeg" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Двигатели</small>
+                                <a class="product-name" href="#">Элек­трод­ви­гатель асин­хрон­ный IK-FCKKW8-2P 71M IM1001 B3 0,37кВт 380В</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/hit4.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Двигатели</small>
+                                <a class="product-name" href="#">Мотор-редуктор NMRV 090-60-23,3-1,1</a>
+                                <div class="small m-t-xs text-muted">
+                                    1,1 кВт
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    COMPANIES     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters p-5">
+    <div class="row justify-content-center">
+        <img src="images/companies.png" alt="">
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    VIDEOS     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters">
+    <div class="row p-5">
+        <div class="col-12">
+            <span class="display-smaller">Видео-отчеты</span>
+        </div>
+        <div class="col-3 p-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/video1.png">
+                <strong class="col-8 mt-3">Обзор частотных преобразователей Suzuki серии WET</strong>
+            </div>
+        </div>
+        <div class="col-3 p-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/video2.png">
+                <strong class="col-8 mt-3">Обзор частотных преобразователей Suzuki серии WET</strong>
+            </div>
+        </div>
+        <div class="col-3 p-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/video3.png">
+                <strong class="col-8 mt-3">Обзор частотных преобразователей Suzuki серии WET</strong>
+            </div>
+        </div>
+        <div class="col-3 p-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/video4.png">
+                <strong class="col-8 mt-3">Обзор частотных преобразователей Suzuki серии WET</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    ABOUT US     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters p-5">
+    <div class="row">
+        <div class="col-6 p-5">
+            <strong>Вся продукция и оборудование в одном интернет-магазине электротехнической компании ЭНЕРГОПУСК</strong>
+            <p class="mt-2">Для различных целей в человеческой деятельности очень часто необходимы элементы по типу электрических аппаратов, машин, датчиков и так далее. Все эти изделия и устройства называются не иначе как электротехническая продукция с выполняемой вырабатывающей, преобразовывающей, потребляющей или передающей электроэнергию ролью. Товары такого потребления всегда имеют большой спрос, поэтому, очень удобно, чтобы всё необходимое и возможное оборудование электротехники находилось в одном месте, например, магазине. Наш электротехнический интернет-магазин предлагает такую возможность абсолютно каждому человеку, удобно разместив все изделия на страницах каталога товаров.</p>
+        </div>
+
+
+        <div class="col-6 p-5">
+            <strong>Частотный преобразователь</strong>
+            <p class="mt-2">Частотный преобразователь и цена<br>
+                Для того чтобы разобраться в необходимости использования частотного преобразователя, необходимо знать принцип работы и функции, которые выполняет устройство. Основная функция – это преобразование переменного тока в постоянный или наоборот, с целью достижения необходимых амплитуд вращения.<br>
+                Преобразователь частоты был создан с целью регулировки вращения ротора и должно было стать надежной заменой механическим аналогам, которые не справлялись с регулировкой вращения механизмов, приводили к большим энергетическим затратам и не меньшим нагрузкам. В связи с этим, поломки были регулярными. По итогам исследовательских работ появился популярный на данный момент класс приборов. Последние смогли решить проблемы больших затрат на производстве и снизить степень механического износа оборудования.</p>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    ARTICLES     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters products-background">
+    <div class="row p-5">
+        <div class="col-4 p-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Практика сварочного обмана. Как не проколоться при выборе аппарата. Часть 2</h5>
+                    <p class="card-text">Продолжаем серию статей о том, как производители сварочных аппаратов обманывают своих покупателей. Как не попасться на их уловки?</p>
+                    <h6 class="card-subtitle mb-2 mt-4 text-muted">10.10.2016</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 p-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Практика сварочного обмана. Как не проколоться при выборе аппарата. Часть 2</h5>
+                    <p class="card-text">Продолжаем серию статей о том, как производители сварочных аппаратов обманывают своих покупателей. Как не попасться на их уловки?</p>
+                    <h6 class="card-subtitle mb-2 mt-4 text-muted">10.10.2016</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 p-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Практика сварочного обмана. Как не проколоться при выборе аппарата. Часть 2</h5>
+                    <p class="card-text">Продолжаем серию статей о том, как производители сварочных аппаратов обманывают своих покупателей. Как не попасться на их уловки?</p>
+                    <h6 class="card-subtitle mb-2 mt-4 text-muted">10.10.2016</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    SEE ALSO     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters mt-5">
+    <div class="row m-1 products-background">
+        <div class="col-12 pt-5 pl-5 pr-5">
+            <span class="display-smaller">Смотрите также</span>
+            <a href="#"><img alt="" class="img-fluid mt-3 float-right" src="images/buttons.png" style="height: 40px"></a>
+        </div>
+        <div class="col-12 p-5">
+            <div class="row">
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/discounts1.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Частотные преобразователи</small>
+                                <a class="product-name" href="#">Частотный преобразователь TOSHIBA VFAS1-4055PL-WP (EMC,GTR7) 5.5kBt 380B</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/discounts3.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Датчики давления</small>
+                                <a class="product-name" href="#">Датчик давления Danfos MBS1700 G1/2 0...6 бар</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/discounts4.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Конденсаторные установки</small>
+                                <a class="product-name" href="#">Конденсаторная установка УКМФ 58-0,4-300-50 УЗ</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="ibox">
+                        <div class="ibox-content product-box">
+                            <img alt="" class="img-fluid" src="images/contents/hit2.png" style="height: 200px">
+                            <div class="product-desc">
+                                <small class="text-muted">Трансформаторы</small>
+                                <a class="product-name" href="#">Трансформатор сухой ТСЗГЛФ-160/6/0,4 У/Ун-0 Ukз=4%</a>
+                                <div class="small m-t-xs text-muted">
+                                    380-В | 3.7 kBt | 10.5 A
+                                </div>
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col-6"><h4>18 100 руб.</h4></div>
+                                        <div class="col-6">
+                                            <a class="btn btn-xs btn-outline-orange" href="#">Купить <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3 border-top pt-2">
+                                    <div class="row">
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/star.png"> В избранное</a></div>
+                                        <div class="col-6 smaller"><a href="#" class="text-black-50"><img class="icon-small" src="images/chart.png"> Сравнить</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    LAST SEEN     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters">
+    <div class="row p-5 justify-content-center">
+        <div class="col-12">
+            <span class="display-smaller">Вы смотрели</span>
+        </div>
+        <div class="col-2 m-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/last-seen1.png" style="height: 200px">
+                <a class="product-name" href="#">Частотный преобразователь TOSHIBA VFAS1-4055PL-WP (EMC,GTR7) 5.5kBt 380B</a>
+            </div>
+        </div>
+        <div class="col-2 m-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/last-seen2.png" style="height: 200px">
+                <a class="product-name" href="#">Частотный преобразователь TOSHIBA VFAS1-4055PL-WP 0,4 кВт 380В</a>
+            </div>
+        </div>
+        <div class="col-2 m-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/last-seen3.png" style="height: 200px">
+                <a class="product-name" href="#">Частотный преобразователь TOSHIBA VFAS1-4055PL-WP 1,5 кВт 380B</a>
+            </div>
+        </div>
+        <div class="col-2 m-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/last-seen-4.png" style="height: 200px">
+                <a class="product-name" href="#">Частотный преобразователь TOSHIBA VFAS1-4055PL-WP (EMC,GTR7) 5.5kBt 380B</a>
+            </div>
+        </div>
+        <div class="col-2 m-3">
+            <div class="row justify-content-center">
+                <img alt="" src="images/contents/last-seen5.png" style="height: 200px">
+                <a class="product-name" href="#">Частотный преобразователь TOSHIBA VFAS1-4055PL-WP 1,5 кВт 380B</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--    ***|||***===*===***|||***    FOOTER     ***|||***===*===***|||***                  -->
+
+<div class="container-fluid no-gutters">
+    <div class="row footer-form">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6">
+                    <div class="row m-auto">
+                        <h1 style="font-weight: 150">Подпишись на нашу рассылку</h1>
+                        <p class="">Лучшие предложения для наших подписчиков!</p>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row mt-4">
+                        <label>
+                            <input placeholder="   Введите Ваш e-mail адрес" type="text" style="width: 450px">
+                        </label>
+                        <input value="Отправить" class="btn rounded-0 btn-email-submit" type="submit">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row footer">
+        <div class="col-3">
+            <strong>О компании</strong>
+            <ul>
+                <li><a>Наша история</a></li>
+                <li><a>Вакансии</a></li>
+                <li><a>Предложение конечным клиентам</a></li>
+                <li><a>Предложение монтажникам</a></li>
+                <li><a>Предложение дилерам</a></li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <strong>Акции</strong>
+            <ul>
+                <li><a>Горячие предложения</a></li>
+                <li><a>Скидки от 10%</a></li>
+                <li><a>Хиты продаж</a></li>
+                <li><a>Новинки на складе</a></li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <strong>Есть вопросы? Звоните!</strong>
+            <ul>
+                <li><a>Рейтинги по надежности</a></li>
+                <li><a>Обзоры оборудования</a></li>
+                <li><a>Популярные статьи</a></li>
+                <li><a>Руководства по выбору</a></li>
+                <li><a>Советы по монтажу, настройке, эксплуатации</a></li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <strong>Есть вопросы? Звоните!</strong>
+            <ul>
+                <li><a>+7 (495) 504-36-33</a></li>
+                <li><a>Для звонков по Москве</a></li>
+                <li><a>8 (800) 700-11-54</a></li>
+                <li><a>По России звонок бесплатный</a></li>
+                <li><a>zapos@elleron.ru</a></li>
+            </ul>
+        </div>
+        <div class="col-6 border-top pt-5 mt-3">
+            © 2006-2019. Элерон
+        </div>
+        <div class="col-6 border-top pt-5  mt-3">
+            <img alt="" class="img-fluid float-right" src="images/links.png" style="height: 50px">
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
